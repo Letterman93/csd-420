@@ -35,9 +35,6 @@ import java.util.Locale;
 
 public class NizamLinkedListTraversal {
 
-    // Keep warm-up results observable so their calculations are used.
-    private static volatile long warmUpSum;
-
     /** Creates a list containing the integers 0 through size - 1. */
     public static LinkedList<Integer> createList(int size) {
         if (size < 0) {
@@ -79,9 +76,13 @@ public class NizamLinkedListTraversal {
 
         // Use a small list to warm up both methods before measuring.
         LinkedList<Integer> warmUpList = createList(5_000);
+        long expectedWarmUpSum = 12_497_500;
         for (int repeat = 0; repeat < 5; repeat++) {
-            warmUpSum = sumUsingIterator(warmUpList);
-            warmUpSum = sumUsingGet(warmUpList);
+            long iteratorSum = sumUsingIterator(warmUpList);
+            long indexedSum = sumUsingGet(warmUpList);
+            if (iteratorSum != expectedWarmUpSum || indexedSum != expectedWarmUpSum) {
+                throw new AssertionError("Warm-up sums are incorrect.");
+            }
         }
 
         long[] smallerTimes = runComparison(50_000);
