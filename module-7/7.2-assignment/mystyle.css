@@ -1,0 +1,34 @@
+/*
+ * Author: Zak Nizam
+ * Date: October 24, 2026
+ * Course: CSD 420 - Advanced Java Programming
+ * Assignment: Module 7.2 Programming Assignment
+ * Purpose: Define the circles' shared appearance and individual color rules.
+ */
+
+/* A period selects a style class shared by all four circles. */
+.plaincircle {
+    -fx-fill: white;
+    -fx-stroke: black;
+}
+
+/* A number sign selects a node's ID. These rules override the shared colors. */
+#redcircle {
+    -fx-fill: red;
+    -fx-stroke: red;
+}
+
+#greencircle {
+    -fx-fill: green;
+    -fx-stroke: green;
+}
+
+/* Match the black frame around the first circle in the assignment image. */
+.border {
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}
+
+.circle-row {
+    -fx-background-color: white;
+}
