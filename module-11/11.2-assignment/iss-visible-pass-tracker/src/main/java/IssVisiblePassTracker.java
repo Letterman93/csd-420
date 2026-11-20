@@ -40,7 +40,7 @@ public class IssVisiblePassTracker {
             .ofPattern("MMMM d, uuuu 'at' h:mm:ss a z", Locale.US).withZone(TIME_ZONE);
 
     public static void main(String[] args) {
-        // Keep the personal API key outside source control and the submission files.
+        // Read the API key from an environment variable instead of storing it in the code.
         int result = run(System.getenv("N2YO_API_KEY"), System.out, System.err);
         if (result != 0) {
             System.exit(result);
@@ -75,7 +75,7 @@ public class IssVisiblePassTracker {
         return 1;
     }
 
-    /** Send an HTTPS GET in normal use. Tests supply a local HTTP server. */
+    /** Send a GET request and return the JSON response. */
     public static String fetchJson(HttpClient client, URI uri) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder(uri)
                 .timeout(Duration.ofSeconds(25))

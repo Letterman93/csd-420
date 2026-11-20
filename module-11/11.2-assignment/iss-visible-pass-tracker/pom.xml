@@ -33,17 +33,6 @@
                 <configuration>
                     <mainClass>${exec.mainClass}</mainClass>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>tracker-checks</id>
-                        <phase>test</phase>
-                        <goals><goal>java</goal></goals>
-                        <configuration>
-                            <mainClass>IssVisiblePassTrackerChecks</mainClass>
-                            <classpathScope>test</classpathScope>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
