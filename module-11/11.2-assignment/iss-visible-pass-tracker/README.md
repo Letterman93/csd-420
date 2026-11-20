@@ -2,15 +2,11 @@
 
 Zak Nizam | CSD 420 | Module 11.2 | November 20, 2026
 
-This additional Java example requests visible ISS passes from N2YO and uses Jackson's `ObjectMapper` and `JsonNode` to read the nested `info` object and `passes` array. It searches ten days from Kennedy Space Center (28.5729, -80.6490, altitude 0 meters), keeping passes visible for at least 60 seconds. Times appear in `America/New_York`, with EST or EDT applied automatically.
+This program requests visible ISS passes from N2YO and uses Jackson's `ObjectMapper` and `JsonNode` to read the JSON response. It searches ten days from Kennedy Space Center (28.5729, -80.6490, altitude 0 meters), keeping passes visible for at least 60 seconds. Times appear in `America/New_York`, with EST or EDT applied automatically.
 
 ## Build and run
 
-Use JDK 21 or newer and Maven. Open this folder in VS Code or use its terminal. This computer already has a suitable JDK and Maven bundled with NetBeans. If `mvn` is not on PATH, this command creates a shortcut for the current PowerShell session:
-
-```powershell
-Set-Alias mvn "$HOME\Documents\VS Code\.course-tools\netbeans\java\maven\bin\mvn.cmd"
-```
+Use JDK 21 or newer and Maven, with the `java` and `mvn` commands on PATH. Open this project folder in VS Code and use its terminal.
 
 Compile and run the offline checks:
 
@@ -35,7 +31,7 @@ The application always makes a live request when run. It does not print the key 
 
 `../live-output.txt` contains the output captured from a successful live request on November 20, 2026. Predictions will change when the program is run again.
 
-`sample-output.txt` shows actual parser output from N2YO's **published historical March 2018 example**, not current Kennedy Space Center predictions. It provides a reproducible formatting example without inventing live results. Regenerate it with:
+`sample-output.txt` shows parser output from N2YO's **published historical March 2018 example**. The historical response makes it possible to test the parser without making another live API request. Regenerate it with:
 
 ```powershell
 mvn -q test-compile exec:java "-Dexec.mainClass=IssVisiblePassTrackerChecks" "-Dexec.classpathScope=test" "-Dexec.args=--sample"
@@ -55,9 +51,7 @@ mvn -q test-compile exec:java "-Dexec.mainClass=IssVisiblePassTrackerChecks" "-D
 
 Jackson 2.x matches the `com.fasterxml.jackson` imports used in this example.
 
-## Sources and adaptation
+## References
 
 - N2YO. (n.d.). *N2YO.com REST API v1: Get visual passes.* https://www.n2yo.com/api/ (accessed November 20, 2026). The endpoint, response fields, magnitude sentinel, and historical test response come from this documentation.
 - FasterXML. (n.d.). *Jackson Databind: Tree Model (2.20 branch).* https://github.com/FasterXML/jackson-databind/tree/2.20#tree-model (accessed November 20, 2026). The JSON parsing adapts its `readTree()` and field-access example to a real HTTP response.
-
-This tracker was developed from the N2YO REST API documentation and adapts Jackson's published tree-model example. It is submitted separately from the paper.

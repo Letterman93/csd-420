@@ -9,7 +9,6 @@
  * https://www.n2yo.com/api/
  * The JSON tree parsing adapts FasterXML's Jackson Databind "Tree Model" example:
  * https://github.com/FasterXML/jackson-databind/tree/2.20#tree-model
- * This is an adaptation for the assignment, not an unchanged published program.
  */
 
 import com.fasterxml.jackson.core.JsonProcessingException;
