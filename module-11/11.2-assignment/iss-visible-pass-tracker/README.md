@@ -54,4 +54,4 @@ Jackson 2.x matches the `com.fasterxml.jackson` imports used in this example.
 ## References
 
 - N2YO. (n.d.). *N2YO.com REST API v1: Get visual passes.* https://www.n2yo.com/api/ (accessed November 20, 2026). The endpoint, response fields, magnitude sentinel, and historical test response come from this documentation.
-- FasterXML. (n.d.). *Jackson Databind: Tree Model (2.20 branch).* https://github.com/FasterXML/jackson-databind/tree/2.20#tree-model (accessed November 20, 2026). The JSON parsing adapts its `readTree()` and field-access example to a real HTTP response.
+- FasterXML. (n.d.). *Jackson Databind: Tree Model (2.20 branch).* https://github.com/FasterXML/jackson-databind/tree/2.20#tree-model (accessed November 20, 2026). This was used as a reference for `ObjectMapper`, `readTree()`, and working with `JsonNode` values.

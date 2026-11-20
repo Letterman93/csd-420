@@ -7,7 +7,7 @@
  * Purpose: Request upcoming visible ISS passes and parse nested JSON with Jackson.
  * Developed from the N2YO REST API documentation, "Get visual passes":
  * https://www.n2yo.com/api/
- * The JSON tree parsing adapts FasterXML's Jackson Databind "Tree Model" example:
+ * Jackson Databind Tree Model reference:
  * https://github.com/FasterXML/jackson-databind/tree/2.20#tree-model
  */
 
